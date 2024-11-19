@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shop premium wigs from Hope for Hair & Beauty. Explore versatile styles and find your perfect look!">
+    <title>Shop - Hope for Hair & Beauty</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="company-name">
+            Hope for Hair & Beauty
+            <hr class="fancy-hr">
+        </div>
+        
+            <div class="cart-icon">
+                <a href="cart.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cart-counter">(0 items - $0.00)</span>
+                </a>
+            </div>
+            
+        </div>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="tryiton.html">Try It On!</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>Our Wigs</h1>
+        <p>Discover our collection of high-quality wigs designed to restore confidence and enhance your style.</p>
+    </section>
+
+    <!-- Product Grid Section -->
+    <section class="product-section">
+        <!-- Product Cards -->
+        <div class="product">
+            <img src="https://via.placeholder.com/200x200?text=Wig+1" alt="Wig 1">
+            <h3>Wig 1</h3>
+            <p>$49.99</p>
+            <button onclick="addToCart('Wig 1', 49.99)">Add to Cart</button>
+            <button class="try-it-on" onclick="tryOnWig('https://via.placeholder.com/200x200?text=Wig+1')">Try It On</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/200x200?text=Wig+2" alt="Wig 2">
+            <h3>Wig 2</h3>
+            <p>$59.99</p>
+            <button onclick="addToCart('Wig 2', 59.99)">Add to Cart</button>
+            <button class="try-it-on" onclick="tryOnWig('https://via.placeholder.com/200x200?text=Wig+2')">Try It On</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/200x200?text=Wig+3" alt="Wig 3">
+            <h3>Wig 3</h3>
+            <p>$69.99</p>
+            <button onclick="addToCart('Wig 3', 69.99)">Add to Cart</button>
+            <button class="try-it-on" onclick="tryOnWig('https://via.placeholder.com/200x200?text=Wig+3')">Try It On</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/200x200?text=Wig+4" alt="Wig 4">
+            <h3>Wig 4</h3>
+            <p>$79.99</p>
+            <button onclick="addToCart('Wig 4', 79.99)">Add to Cart</button>
+            <button class="try-it-on" onclick="tryOnWig('https://via.placeholder.com/200x200?text=Wig+4')">Try It On</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/200x200?text=Wig+5" alt="Wig 5">
+            <h3>Wig 5</h3>
+            <p>$89.99</p>
+            <button onclick="addToCart('Wig 5', 89.99)">Add to Cart</button>
+            <button class="try-it-on" onclick="tryOnWig('https://via.placeholder.com/200x200?text=Wig+5')">Try It On</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/200x200?text=Wig+6" alt="Wig 6">
+            <h3>Wig 6</h3>
+            <p>$99.99</p>
+            <button onclick="addToCart('Wig 6', 99.99)">Add to Cart</button>
+            <button class="try-it-on" onclick="tryOnWig('https://via.placeholder.com/200x200?text=Wig+6')">Try It On</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/200x200?text=Wig+7" alt="Wig 7">
+            <h3>Wig 7</h3>
+            <p>$109.99</p>
+            <button onclick="addToCart('Wig 7', 109.99)">Add to Cart</button>
+            <button class="try-it-on" onclick="tryOnWig('https://via.placeholder.com/200x200?text=Wig+7')">Try It On</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/200x200?text=Wig+8" alt="Wig 8">
+            <h3>Wig 8</h3>
+            <p>$119.99</p>
+            <button onclick="addToCart('Wig 8', 119.99)">Add to Cart</button>
+            <button class="try-it-on" onclick="tryOnWig('https://via.placeholder.com/200x200?text=Wig+8')">Try It On</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/200x200?text=Wig+9" alt="Wig 9">
+            <h3>Wig 9</h3>
+            <p>$129.99</p>
+            <button onclick="addToCart('Wig 9', 129.99)">Add to Cart</button>
+            <button class="try-it-on" onclick="tryOnWig('https://via.placeholder.com/200x200?text=Wig+9')">Try It On</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/200x200?text=Wig+10" alt="Wig 10">
+            <h3>Wig 10</h3>
+            <p>$139.99</p>
+            <button onclick="addToCart('Wig 10', 139.99)">Add to Cart</button>
+            <button class="try-it-on" onclick="tryOnWig('https://via.placeholder.com/200x200?text=Wig+10')">Try It On</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/200x200?text=Wig+11" alt="Wig 11">
+            <h3>Wig 11</h3>
+            <p>$149.99</p>
+            <button onclick="addToCart('Wig 11', 149.99)">Add to Cart</button>
+            <button class="try-it-on" onclick="tryOnWig('https://via.placeholder.com/200x200?text=Wig+11')">Try It On</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/200x200?text=Wig+12" alt="Wig 12">
+            <h3>Wig 12</h3>
+            <p>$159.99</p>
+            <button onclick="addToCart('Wig 12', 159.99)">Add to Cart</button>
+            <button class="try-it-on" onclick="tryOnWig('https://via.placeholder.com/200x200?text=Wig+12')">Try It On</button>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <hr class="fancy-hr">
+        <p>&copy; 2024 Hope for Hair & Beauty. Restoring Confidence, One Style at a Time.</p>
+    </footer>
+    <script>
+        // Function to load cart data from localStorage or initialize if empty
+
+        function loadCart() {
+    const cart = localStorage.getItem("cart");
+    console.log("Loaded cart:", cart); // Log the cart before parsing
+    return cart ? JSON.parse(cart) : [];
+}
+
+
+
+// Function to save cart data to localStorage
+function saveCart(cart) {
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+// Function to update the cart counter in the header
+function updateCartCounter() {
+    const cart = loadCart();
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const totalPrice = cart.reduce((sum, item) => sum + item.quantity * item.price, 0);
+
+    // Update the cart counter element
+    const counter = document.getElementById("cart-counter");
+    counter.textContent = `(${totalItems} items - $${totalPrice.toFixed(2)})`;
+}
+
+// Function to add an item to the cart
+function addToCart(name, price) {
+    const cart = loadCart();
+    console.log("addToCart called for:", name, price);
+
+
+    // Check if the item already exists in the cart
+    const existingItem = cart.find(item => item.name === name);
+
+    if (existingItem) {
+        // If the item exists, increase its quantity
+        existingItem.quantity += 1;
+    } else {
+        // If the item does not exist, add a new entry
+        cart.push({ name, price, quantity: 1 });
+    }
+
+    // Save the updated cart and update the counter
+    saveCart(cart);
+    updateCartCounter();
+
+    // Confirm item addition to the user
+    alert(`${name} has been added to the cart!`);
+}
+
+// Function to navigate to the "Try It On" page with a selected wig image
+function tryOnWig(imageUrl) {
+    // Navigate to the Try It On page with the wig image URL as a query parameter
+    window.location.href = `tryiton.html?wig=${encodeURIComponent(imageUrl)}`;
+}
+
+// Update the cart counter when the page loads
+document.addEventListener("DOMContentLoaded", updateCartCounter);
+
+    </script>
+</body>
+</html>

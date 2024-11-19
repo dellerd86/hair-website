@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Hope for Hair & Beauty for inquiries, support, and personalized hair care solutions.">
+    <title>Contact Us - Hope for Hair & Beauty</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="company-name">
+            Hope for Hair & Beauty
+            <hr class="fancy-hr">
+        </div>
+        
+            <div class="cart-icon">
+                <a href="cart.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cart-counter">(0 items - $0.00)</span>
+                </a>
+            </div>
+            
+        </div>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="tryiton.html">Try It On!</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>Contact Us</h1>
+        <p>If you have any questions or need further assistance, please reach out to us.</p>
+    </section>
+
+    <div class="container">
+        <!-- Owner Photo -->
+        <div class="owner-photo">
+            <img src="KIA.jpg" alt="Kiasi Thomas - Owner" class="owner-image">
+        </div>
+    </div>
+    
+    <style>
+        .container {
+            display: flex;
+            justify-content: center; /* Horizontally center the content */
+            align-items: center; /* Vertically center the content */
+            padding: 20px 0; /* Add padding instead of height to control spacing */
+            height: auto; /* Adjust height dynamically based on content */
+        }
+    
+        .owner-photo img {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+    </style>
+    
+    
+
+        <section class="contact-info">
+            <h2>Get in Touch</h2>
+            <p>If you have any questions or need further assistance, feel free to reach out to us through the form below, or use the contact details provided.</p>
+            <p><strong>Email:</strong> support@beautifulwigs.com</p>
+        </section>
+
+                <style>
+                    .contact-info {
+                        text-align: center;
+                                  }
+        
+                    .contact-info h2 {
+                        color: #FF69B4; /* Use the site's pink color */
+                                     }
+        </style>
+
+        <!-- Contact Form Section -->
+        <section class="contact-section">
+            <form action="https://formspree.io/f/xdkoodao" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </div>
+            <br>
+        
+    <footer>
+        <hr class="fancy-hr">
+        <p>&copy; 2024 Hope for Hair & Beauty. Restoring Confidence, One Style at a Time.</p>
+    </footer>
+    <style>
+
+                     footer {
+                     background-color: var(--primary-black);
+                     color: var(--text-color);
+                     text-align: center;
+                     padding: 2rem 2rem;
+                     border-spacing: 5px, 10px;
+                     font-size: 0.9rem;
+                     line-height: 1.5;
+                            }
+    </style>
+
+        <script>
+            
+    // Function to load cart data from localStorage or initialize if empty
+    function loadCart() {
+        const cart = localStorage.getItem("cart");
+        return cart ? JSON.parse(cart) : [];
+    }
+
+    // Function to update the cart counter in the header
+    function updateCartCounter() {
+        const cart = loadCart();
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const totalPrice = cart.reduce((sum, item) => sum + item.quantity * item.price, 0);
+
+        const counter = document.getElementById("cart-counter");
+        counter.textContent = `(${totalItems} items - $${totalPrice.toFixed(2)})`;
+    }
+
+    // Function to validate the contact form
+    function validateContactForm(event) {
+        const name = document.querySelector("input[name='name']");
+        const email = document.querySelector("input[name='email']");
+        const message = document.querySelector("textarea[name='message']");
+
+        // Simple validation for empty fields
+        if (!name.value.trim() || !email.value.trim() || !message.value.trim()) {
+            alert("Please fill in all fields before submitting.");
+            event.preventDefault();
+            return false;
+        }
+
+        // Basic email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email.value)) {
+            alert("Please enter a valid email address.");
+            event.preventDefault();
+            return false;
+        }
+
+        return true;
+    }
+
+    // Add event listener to validate the form before submission
+    document.addEventListener("DOMContentLoaded", () => {
+        const contactForm = document.querySelector(".contact-section form");
+        if (contactForm) {
+            contactForm.addEventListener("submit", validateContactForm);
+        }
+
+        // Update the cart counter on page load
+        updateCartCounter();
+    });
+
+
+        </script>
+
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your shopping cart at Hope for Hair & Beauty. Review your selected items and proceed to checkout.">
+    <title>Your Cart - Hope for Hair & Beauty</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <header>
+        <div class="company-name">
+            Hope for Hair & Beauty
+            <hr class="fancy-hr">
+        </div>        
+            
+        </div>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="tryiton.html">Try It On!</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    
+    <section class="hero-section">
+        <h1>Your Cart</h1>
+        <p>Review your items and proceed to checkout.</p>
+    </section>
+
+    <div class="container">
+        <table id="cart-table">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Cart items will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Separate Section for Summary and Checkout -->
+    <div id="cart-summary-wrapper">
+        <div id="cart-summary">
+            <p><strong>Total Items:</strong> <span id="total-items">0</span></p>
+            <p><strong>Total Cost:</strong> $<span id="total-cost">0.00</span></p>
+        </div>
+        <button id="checkout-button">Proceed to Checkout</button>
+    </div>
+    
+
+    <style>
+
+    .container {
+        display: flex; /* Enable Flexbox for centering */
+        justify-content: center; /* Center horizontally */
+        padding: 10px;
+    
+    align-items: center; /* Center vertically */
+    height: 100%; /* Make the container take full height */
+}
+.container > * {
+        margin-bottom: 0px; /* Add about half an inch (8px = 0.5in on most screens) */
+    }
+
+    .container > *:last-child {
+        margin-bottom: 0; /* Remove margin from the last element */
+    }
+    #cart-summary {
+        margin-top: 0px; /* Add space above the summary */
+        text-align: center; /* Center-align the summary text */
+    }
+
+    #checkout-button {
+        margin-top: 10px; /* Add space above the button */
+        display: block; /* Make the button take a full line */
+        margin-left: auto;
+        margin-right: auto; /* Center the button horizontally */
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #FF69B4; /* Pink button color */
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #checkout-button:hover {
+        background-color: #FF85C8; /* Slightly lighter pink on hover */
+    }
+
+
+
+    #checkout-button:hover {
+        background-color: #FF85C8; /* Lighter pink on hover */
+    }
+   
+    #cart-table th, #cart-table td {
+        padding: 5px; /* Adds space inside table cells */
+        text-align: center; /* Center-align the text inside cells */
+    }
+
+    #cart-table {
+        border-collapse: separate; /* Ensures padding doesn’t overlap borders */
+        border-spacing: 5px; /* Adds spacing between cells (horizontal and vertical) */
+        width: 25%; /* Ensures table takes up the full container width */
+    }
+
+
+</style>
+    <footer>
+        <hr class="fancy-hr">
+        <p>&copy; 2024 Hope for Hair & Beauty. Restoring Confidence, One Style at a Time.</p>
+    </footer>  
+
+    <script>
+
+
+    // Function to load cart data from localStorage or initialize if empty
+    function loadCart() {
+        const cart = localStorage.getItem("cart");
+        return cart ? JSON.parse(cart) : [];
+    }
+
+    // Function to save cart data to localStorage
+    function saveCart(cart) {
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    // Function to render the cart
+    function renderCart() {
+        const cart = loadCart();
+        const cartTableBody = document.querySelector("#cart-table tbody");
+        const totalItemsElement = document.getElementById("total-items");
+        const totalCostElement = document.getElementById("total-cost");
+
+        // Clear the cart table body
+        cartTableBody.innerHTML = "";
+
+        if (cart.length === 0) {
+            cartTableBody.innerHTML = "<tr><td colspan='5'>Your cart is empty.</td></tr>";
+            totalItemsElement.textContent = "0";
+            totalCostElement.textContent = "0.00";
+            return;
+        }
+
+        let totalItems = 0;
+        let totalCost = 0;
+
+        cart.forEach((item, index) => {
+            const subtotal = item.price * item.quantity;
+            totalItems += item.quantity;
+            totalCost += subtotal;
+
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+                <td>${item.name}</td>
+                <td>$${item.price.toFixed(2)}</td>
+                <td>
+                    <button onclick="updateQuantity(${index}, -1)">-</button>
+                    ${item.quantity}
+                    <button onclick="updateQuantity(${index}, 1)">+</button>
+                </td>
+                <td>$${subtotal.toFixed(2)}</td>
+                <td><button onclick="removeItem(${index})">Remove</button></td>
+            `;
+
+            cartTableBody.appendChild(row);
+        });
+
+        totalItemsElement.textContent = totalItems;
+        totalCostElement.textContent = totalCost.toFixed(2);
+    }
+
+    // Function to update item quantity
+    function updateQuantity(index, change) {
+        const cart = loadCart();
+        cart[index].quantity += change;
+
+        // Remove the item if quantity becomes zero or less
+        if (cart[index].quantity <= 0) {
+            cart.splice(index, 1);
+        }
+
+        saveCart(cart);
+        renderCart();
+    }
+
+    // Function to remove an item from the cart
+    function removeItem(index) {
+        const cart = loadCart();
+        cart.splice(index, 1);
+        saveCart(cart);
+        renderCart();
+    }
+
+    // Checkout button handler
+    document.getElementById("checkout-button").addEventListener("click", () => {
+        const cart = loadCart();
+        if (cart.length === 0) {
+            alert("Your cart is empty. Add items to proceed to checkout.");
+            return;
+        }
+
+        // Example: Redirect to a mock checkout page
+        alert("Proceeding to checkout...");
+        // Replace this with your checkout page logic
+    });
+
+    // Render cart on page load
+    document.addEventListener("DOMContentLoaded", renderCart);
+
+
+    </script>
+</body>
+</html>

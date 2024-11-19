@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about Hope for Hair & Beauty and our commitment to restoring confidence through personalized hair solutions.">
+    <title>About Us - Hope for Hair & Beauty</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <header>
+        <div class="company-name">
+            Hope for Hair & Beauty
+            <hr class="fancy-hr">
+        </div>
+        
+            <div class="cart-icon">
+                <a href="cart.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cart-counter">(0 items - $0.00)</span>
+                </a>
+            </div>
+            
+            </div>
+        </div>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="tryiton.html">Try It On!</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <!-- Owner Photo -->
+        <div class="owner-photo">
+            <img src="KIA.jpg" alt="Kiasi Thomas - Owner" class="owner-image">
+        </div>
+    </div>
+    
+    <style>
+        .container {
+            display: flex;
+            justify-content: center; /* Horizontally center the content */
+            align-items: center; /* Vertically center the content */
+            padding: 20px 0; /* Add padding instead of height to control spacing */
+            height: auto; /* Adjust height dynamically based on content */
+        }
+    
+        .owner-photo img {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+    </style>
+
+        <section class="owner-story">
+            <h2>Our Story</h2>
+            <p>Hello, my name is Kiasi Thomas, and I am a licensed cosmetologist with over 10 years of experience. I am also a Cranial Prosthesis Specialist. Over the years, I have had the privilege of working with clients to help them feel their best, and there's nothing more rewarding than seeing the smile on their face after a hair transformation. I am deeply passionate about creating positive experiences and offering exceptional service tailored to each individual’s needs.</p>
+            <p>I specialize in helping clients dealing with hair loss by providing customized cranial prosthetics and versatile styling solutions that not only restore hair but also boost confidence and empower them to feel more like themselves. Whether you're seeking a natural-looking solution to hair loss or simply want a fresh, versatile style, I am committed to providing expert guidance and support.</p>
+            <p>My goal is to inspire and empower individuals through personalized hair care that enhances both appearance and self-esteem. I am here to support you in your journey, offering compassion, creativity, and the expertise needed to help you feel confident and beautiful every day.</p>
+        </section>
+
+            <style>
+                .owner-story { 
+                    text-align: center;
+                }
+                .owner-story h2 {
+                    color: #FF69B4;
+                }
+            </style>
+
+        
+    </div>
+        <hr class="fancy-hr">
+    <footer>
+        <section class="support-local">
+            <p>When you shop with us, you’re supporting more than just a business – you’re supporting dreams, passion, and community. We believe in the power of local businesses to make a difference, and your support helps us continue to grow, hire locally, and give back to the community we love.</p>
+        </section>
+
+        <style>
+            .support-local {
+                font-size: 20px;
+            }
+        </style>
+        <br>
+        <style>
+          
+        </style>
+        <hr class="fancy-hr">
+        <p>&copy; 2024 Hope for Hair & Beauty. Restoring Confidence, One Style at a Time.</p>
+    </footer>
+    <script>
+       
+
+    // Function to load cart data from localStorage or initialize if empty
+    function loadCart() {
+        const cart = localStorage.getItem("cart");
+        return cart ? JSON.parse(cart) : [];
+    }
+
+    // Function to update the cart counter in the header
+    function updateCartCounter() {
+        const cart = loadCart();
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const totalPrice = cart.reduce((sum, item) => sum + item.quantity * item.price, 0);
+
+        const counter = document.getElementById("cart-counter");
+        counter.textContent = `(${totalItems} items - $${totalPrice.toFixed(2)})`;
+    }
+
+    // Update cart display on page load
+    document.addEventListener("DOMContentLoaded", updateCartCounter);
+
+
+    </script>
+
+</body>
+</html>

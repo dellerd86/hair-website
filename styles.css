@@ -1,0 +1,243 @@
+/* Define Core Colors */
+:root {
+    --primary-pink: #FF69B4;
+    --primary-black: #000000;
+    --accent-gold: #FFD700;
+    --text-color: #FFFFFF;
+}
+
+/* General Page Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--primary-black);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--primary-black);
+}
+
+header h1 {
+    margin: 0;
+    color: var(--text-color);
+    font-size: 2rem;
+}
+
+.cart-icon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 15px;
+}
+
+.cart-icon img {
+    width: 30px;
+    height: 30px;
+}
+
+.cart-icon a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.cart-icon a:hover {
+    color: var(--accent-gold);
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    background-color: var(--primary-pink);
+}
+
+nav a {
+    color: var(--accent-gold);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    color: var(--primary-pink);
+    margin-bottom: 1rem;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+/* Product Grid */
+.product-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+/* Individual Product Styling */
+.product {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.product h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.product p {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.product button {
+    background-color: var(--primary-pink);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product button:hover {
+    background-color: var(--accent-gold);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-black);
+    color: var(--text-color);
+    text-align: center;
+    padding: 2rem 2rem;
+    border-spacing: 5px, 10px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product-section {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        margin-bottom: 1rem;
+    }
+}
+/* Contact Section */
+.contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding-bottom: 10px;
+}
+
+.contact-section form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: -1rem;
+}
+
+.contact-section input,
+.contact-section textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%; /* Ensure consistent width */
+    box-sizing: border-box;
+    transition: height 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-section textarea {
+    height: 40px; /* Match initial height of input fields */
+    overflow: hidden; /* Prevent scrollbars until expanded */
+    resize: none; /* Disable manual resizing */
+}
+
+.contact-section textarea:focus,
+.contact-section textarea:active {
+    height: auto; /* Automatically expand to fit content */
+    min-height: 100px; /* Minimum height after expansion */
+}
+
+.contact-section button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--text-color);
+    background-color: var(--primary-pink);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-section button:hover {
+    background-color: var(--accent-gold);
+}
+.company-name {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5rem; /* Adjust as needed */
+    color: var(--primary-pink); /* Use the pink defined in your theme */
+    text-align: center;
+    padding-top: 25px;
+}
+.fancy-hr {
+    border: 0; /* Remove the default border */
+    height: 3px; /* Set the thickness of the line */
+    background: linear-gradient(to right, var(--primary-pink), var(--accent-gold)); /* Gradient color */
+    margin: 20px 0; /* Add spacing around the <hr> */
+    border-radius: 5px; /* Rounded edges for elegance */
+}
